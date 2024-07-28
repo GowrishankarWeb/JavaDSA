@@ -1,5 +1,12 @@
 package com.patterns;
-
+/*
+5
+*****
+*****
+*****
+*****
+*****
+*/
 import java.util.Scanner;
 
 public class Pattern1 {
