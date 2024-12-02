@@ -1,7 +1,6 @@
 package com.leetcode;
 
 import java.util.Arrays;
-import java.util.Stack;
 
 public class PlusOne {
 
@@ -10,44 +9,21 @@ public class PlusOne {
 		System.out.println(Arrays.toString(plusOne(digits)));
 	}
 	 public static int[] plusOne(int[] digits) {
-		 long n = getNum(digits)+1;
-		 Stack<Integer> s=new Stack<>();
-	        while(n>0) {
-	            int rem=(int) (n%10);
-	            n/=10;
-	            s.push(rem);
-	        }
-	        int []returnArray=new int[s.size()];
-	        for(int i=0;s.size()!=0;i++) {
-	            returnArray[i]=s.peek();
-	            s.pop();
-	        }
-	        return returnArray;
-/*		 if(digits[digits.length-1]%9==0) {
-			 Stack<Integer> s=new Stack<>();
-			 int n=digits[digits.length-1]+1;
-			 while(n>0) {
-				 int rem=n%10;
-				 n/=10;
-				 s.push(rem);
+		 
+		 for(int i=digits.length-1;i>=0;i--) {
+			 if(digits[i]<9) {
+				 digits[i]+=1;
+				 return digits;
 			 }
-			 int []returnArray=new int[s.size()];
-			 for(int i=0;s.size()!=0;i++) {
-				 returnArray[i]=s.peek();
-				 s.pop();
+			 else {
+				 digits[i]=0;
 			 }
-			 return returnArray;
 		 }
-        digits[digits.length-1]=digits[digits.length-1]+1;
-        return digits;*/
+		 
+		 int nums[]=new int[digits.length+1];
+		 nums[0]=1;
+		 return nums;
      }
-	private static long getNum(int[] digits) {
-		long n=0;
-		for(long i=0;i<digits.length;i++) {
-			n*=10;
-			n+=digits[(int) i];
-		}
-		return n;
-	}
+	
 	 
 }	
